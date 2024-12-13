@@ -2,7 +2,7 @@ const CACHE_NAME = 'mt-cache';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
-  '/data/mtfullfinal.geojson',
+  '/data/addresses.geojson',
   '/static/manifest.json',
   '/static/mapmt.png',
   '/css/style.css',
@@ -17,7 +17,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('/data/mtfullfinal.geojson')) {
+  if (event.request.url.includes('/data/addresses.geojson')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
         if (cachedResponse) {
