@@ -33,7 +33,7 @@
                 accessToken: accessToken,
                 container: 'map',
                 style: 'mapbox://styles/kurtsley/cm4m3fm08004001s854hee83t',
-                center: [-104.28835867787583, 48.14070392529706],  // Coordinates for the center
+                center: [-104.51686592715812, 48.14901631783826],  // Coordinates for the center
                 zoom: 10,
                 customAttribution: "Developed by Kurtsley",
             });
@@ -91,6 +91,10 @@
             map.on('load', function () {
                 // Zoom control
                 map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+                // Restrict zoom
+                map.setMinZoom(8);
+                map.setMaxZoom(17);
 
                 map.addSource('points', {
                     type: 'geojson',
